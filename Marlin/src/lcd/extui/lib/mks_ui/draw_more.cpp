@@ -84,33 +84,48 @@ void lv_return_to_ready (void) {
 void lv_draw_more(void) {
   scr = lv_screen_create(MORE_UI);
 
+  // Enabled buttons are packed from the first slot, so disabling one doesn't leave a gap
+  uint8_t slot = 0;
+  #define MORE_BTN_X() (BTN_X_PIXEL * (slot % 4) + INTERVAL_V * (slot % 4 + 1))
+  #define MORE_BTN_Y() (titleHeight + (slot / 4) * (BTN_Y_PIXEL + INTERVAL_H))
+
   #if ENABLED(USER_CMD_1_ENABLE)
-    lv_big_button_create(scr, "F:/bmp_custom1.bin", more_menu.custom1, INTERVAL_V, titleHeight, event_handler, ID_CUSTOM_1);
+    lv_big_button_create(scr, "F:/bmp_custom1.bin", more_menu.custom1, MORE_BTN_X(), MORE_BTN_Y(), event_handler, ID_CUSTOM_1);
+    slot++;
   #endif
 
   #if ENABLED(USER_CMD_2_ENABLE)
-    lv_big_button_create(scr, "F:/bmp_custom2.bin", more_menu.custom2, BTN_X_PIXEL + INTERVAL_V * 2, titleHeight, event_handler, ID_CUSTOM_2);
+    lv_big_button_create(scr, "F:/bmp_custom2.bin", more_menu.custom2, MORE_BTN_X(), MORE_BTN_Y(), event_handler, ID_CUSTOM_2);
+    slot++;
   #endif
 
   #if ENABLED(USER_CMD_3_ENABLE)
-    lv_big_button_create(scr, "F:/bmp_custom3.bin", more_menu.custom3, BTN_X_PIXEL * 2 + INTERVAL_V * 3, titleHeight, event_handler, ID_CUSTOM_3);
+    lv_big_button_create(scr, "F:/bmp_custom3.bin", more_menu.custom3, MORE_BTN_X(), MORE_BTN_Y(), event_handler, ID_CUSTOM_3);
+    slot++;
   #endif
 
   #if ENABLED(USER_CMD_4_ENABLE)
-    lv_big_button_create(scr, "F:/bmp_custom4.bin", more_menu.custom4, BTN_X_PIXEL * 3 + INTERVAL_V * 4, titleHeight, event_handler, ID_CUSTOM_4);
+    lv_big_button_create(scr, "F:/bmp_preset_tpu.bin", more_menu.custom4, MORE_BTN_X(), MORE_BTN_Y(), event_handler, ID_CUSTOM_4);
+    slot++;
   #endif
 
   #if ENABLED(USER_CMD_5_ENABLE)
-    lv_big_button_create(scr, "F:/bmp_custom5.bin", more_menu.custom5, INTERVAL_V, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_CUSTOM_5);
+    lv_big_button_create(scr, "F:/bmp_preset_abs.bin", more_menu.custom5, MORE_BTN_X(), MORE_BTN_Y(), event_handler, ID_CUSTOM_5);
+    slot++;
   #endif
 
   #if ENABLED(USER_CMD_6_ENABLE)
-    lv_big_button_create(scr, "F:/bmp_custom6.bin", more_menu.custom6, BTN_X_PIXEL + INTERVAL_V * 2, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_CUSTOM_6);
+    lv_big_button_create(scr, "F:/bmp_preset_asa.bin", more_menu.custom6, MORE_BTN_X(), MORE_BTN_Y(), event_handler, ID_CUSTOM_6);
+    slot++;
   #endif
 
   #if ENABLED(USER_CMD_7_ENABLE)
-    lv_big_button_create(scr, "F:/bmp_custom7.bin", more_menu.custom7, BTN_X_PIXEL * 2 + INTERVAL_V * 3, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_CUSTOM_7);
+    lv_big_button_create(scr, "F:/bmp_custom7.bin", more_menu.custom7, MORE_BTN_X(), MORE_BTN_Y(), event_handler, ID_CUSTOM_7);
+    slot++;
   #endif
+
+  #undef MORE_BTN_X
+  #undef MORE_BTN_Y
 
   lv_big_button_create(scr, "F:/bmp_return.bin", common_menu.text_back, BTN_X_PIXEL * 3 + INTERVAL_V * 4, BTN_Y_PIXEL + INTERVAL_H + titleHeight, event_handler, ID_M_RETURN);
 

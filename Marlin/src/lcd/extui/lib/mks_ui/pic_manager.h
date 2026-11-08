@@ -37,7 +37,7 @@
   #define HAS_GCODE_PREVIEW               1
 #endif
 #ifndef HAS_LANG_SELECT_SCREEN
-  #define HAS_LANG_SELECT_SCREEN          1
+  #define HAS_LANG_SELECT_SCREEN          0 // French only: no language menu
 #endif
 #ifndef HAS_BAK_VIEW_IN_FLASH
   #define HAS_BAK_VIEW_IN_FLASH           1

@@ -231,7 +231,23 @@ void disp_print_time() {
     const uint32_t r = ui.get_remaining_time();
     sprintf_P(public_buf_l, PSTR("%02d:%02d R"), r / 3600, (r % 3600) / 60);
   #else
-    sprintf_P(public_buf_l, PSTR("%d%d:%d%d:%d%d"), print_time.hours / 10, print_time.hours % 10, print_time.minutes / 10, print_time.minutes % 10, print_time.seconds / 10, print_time.seconds % 10);
+    // Countdown: remaining = elapsed * (total - done) / done, from the SD file position
+    const uint32_t elapsed = print_time.hours * 3600UL + print_time.minutes * 60UL + print_time.seconds;
+    uint32_t total = gCfgItems.curFilesize, done = 0;
+    #if ENABLED(SDSUPPORT)
+      done = card.getIndex();
+    #endif
+    if (gCfgItems.from_flash_pic) {
+      const uint32_t skip = PREVIEW_SIZE + To_pre_view;
+      total = total > skip ? total - skip : 0;
+      done  = done  > skip ? done  - skip : 0;
+    }
+    if (total && done && done <= total && elapsed >= 10) {
+      const uint32_t r = (uint32_t)((uint64_t)elapsed * (total - done) / done);
+      sprintf_P(public_buf_l, PSTR("-%02d:%02d:%02d"), (int)(r / 3600), (int)((r % 3600) / 60), (int)(r % 60));
+    }
+    else
+      strcpy_P(public_buf_l, PSTR("--:--:--"));
   #endif
   lv_label_set_text(labelTime, public_buf_l);
 }

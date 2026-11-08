@@ -2340,7 +2340,7 @@
   #define INTERPOLATE      true
 
   #if AXIS_IS_TMC(X)
-    #define X_CURRENT       800        // (mA) RMS current. Multiply by 1.414 for peak current.
+    #define X_CURRENT       560        // (mA) RMS current. Multiply by 1.414 for peak current.
     #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for sensorless homing
     #define X_MICROSTEPS     16        // 0..256
     #define X_RSENSE          0.11
@@ -2358,7 +2358,7 @@
   #endif
 
   #if AXIS_IS_TMC(Y)
-    #define Y_CURRENT       800
+    #define Y_CURRENT       560
     #define Y_CURRENT_HOME  Y_CURRENT
     #define Y_MICROSTEPS     16
     #define Y_RSENSE          0.11
@@ -2376,7 +2376,7 @@
   #endif
 
   #if AXIS_IS_TMC(Z)
-    #define Z_CURRENT       800
+    #define Z_CURRENT       560
     #define Z_CURRENT_HOME  Z_CURRENT
     #define Z_MICROSTEPS     16
     #define Z_RSENSE          0.11
@@ -2412,7 +2412,7 @@
   #endif
 
   #if AXIS_IS_TMC(E0)
-    #define E0_CURRENT      800
+    #define E0_CURRENT      700
     #define E0_MICROSTEPS    16
     #define E0_RSENSE         0.11
     #define E0_CHAIN_POS     -1
@@ -3353,7 +3353,7 @@
   #define USER_SCRIPT_AUDIBLE_FEEDBACK
   #define USER_SCRIPT_RETURN  // Return to status screen after a script
 
-  #define USER_CMD_1_ENABLE
+  //#define USER_CMD_1_ENABLE
   #define USER_DESC_1 " " // "Home"
   #define USER_GCODE_1 "G28"
 
@@ -3366,16 +3366,16 @@
   #define USER_GCODE_3 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_2_TEMP_HOTEND)
 
   #define USER_CMD_4_ENABLE
-  #define USER_DESC_4 " " // "Heat Bed"
-  #define USER_GCODE_4 "M140 S" STRINGIFY(PREHEAT_1_TEMP_BED) 
+  #define USER_DESC_4 " " // TPU
+  #define USER_GCODE_4 "M140 S50\nM104 S225"
 
   #define USER_CMD_5_ENABLE
-  #define USER_DESC_5 " " // "Motor Off"
-  #define USER_GCODE_5 "M84"
+  #define USER_DESC_5 " " // ABS
+  #define USER_GCODE_5 "M140 S100\nM104 S240"
 
-  //#define USER_CMD_6_ENABLE
-  #define USER_DESC_6 " "
-  #define USER_GCODE_6 " "
+  #define USER_CMD_6_ENABLE
+  #define USER_DESC_6 " " // ASA
+  #define USER_GCODE_6 "M140 S100\nM104 S245"
 
   //#define USER_CMD_7_ENABLE
   #define USER_DESC_7 " "

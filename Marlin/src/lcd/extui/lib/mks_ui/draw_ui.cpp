@@ -153,6 +153,7 @@ void gCfgItems_init() {
   W25QXX.SPI_FLASH_BufferRead((uint8_t *)&gCfgItems.spi_flash_flag, VAR_INF_ADDR, sizeof(gCfgItems.spi_flash_flag));
   if (gCfgItems.spi_flash_flag == FLASH_INF_VALID_FLAG) {
     W25QXX.SPI_FLASH_BufferRead((uint8_t *)&gCfgItems, VAR_INF_ADDR, sizeof(gCfgItems));
+    gCfgItems.language = LANG_FRENCH;  // French only: ignore any language saved by an older firmware
   }
   else {
     gCfgItems.spi_flash_flag = FLASH_INF_VALID_FLAG;

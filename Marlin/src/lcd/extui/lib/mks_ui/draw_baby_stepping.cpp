@@ -164,6 +164,7 @@ void disp_baby_step_dist() {
 }
 
 void disp_z_offset_value() {
+  if (!zOffsetText) return;   // screen already deleted: the label pointer would be dangling
   char buf[20];
   #if HAS_BED_PROBE
     char str_1[16];
@@ -178,6 +179,7 @@ void lv_clear_baby_stepping() {
   #if HAS_ROTARY_ENCODER
     if (gCfgItems.encoder_enable) lv_group_remove_all_objs(g);
   #endif
+  zOffsetText = nullptr;
   lv_obj_del(scr);
 }
 

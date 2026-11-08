@@ -57,6 +57,7 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
   "bmp_leveling.bin",
   "bmp_filamentchange.bin",
   "bmp_more.bin",
+  "bmp_material.bin",
 
   //fan screen
   "bmp_Add.bin",
@@ -103,6 +104,7 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
   "bmp_step_move0_1.bin",
   "bmp_step_move1.bin",
   "bmp_step_move10.bin",
+  "bmp_step_move50.bin",
 
   //operation screen
   "bmp_auto_off.bin",
@@ -223,6 +225,9 @@ static const char assets[][LONG_FILENAME_LENGTH] = {
   "bmp_custom5.bin",
   "bmp_custom6.bin",
   "bmp_custom7.bin",
+  "bmp_preset_tpu.bin",
+  "bmp_preset_abs.bin",
+  "bmp_preset_asa.bin",
 
   // bltouch settings screen
   "bmp_init_state.bin"  

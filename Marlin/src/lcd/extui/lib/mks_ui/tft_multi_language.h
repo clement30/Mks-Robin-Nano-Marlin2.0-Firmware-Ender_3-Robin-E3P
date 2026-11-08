@@ -21,13 +21,7 @@
  */
 #pragma once
 
-#include "tft_Language_en.h"
-#include "tft_Language_s_cn.h"
-#include "tft_Language_t_cn.h"
-#include "tft_Language_ru.h"
 #include "tft_Language_fr.h"
-#include "tft_Language_sp.h"
-#include "tft_Language_it.h"
 
 extern void disp_language_init();
 

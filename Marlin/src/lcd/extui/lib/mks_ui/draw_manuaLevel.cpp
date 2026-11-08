@@ -58,10 +58,10 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
           uiCfg.leveling_first_time = 0;
         }
         lv_disp_action_status(ID_M_POINT1, 0);
-        queue.enqueue_now_P(PSTR("G1 Z10"));
-        sprintf_P(public_buf_l, PSTR("G1 X%d Y%d"), (int)gCfgItems.levelingPos[0][0], (int)gCfgItems.levelingPos[0][1]);
+        queue.enqueue_now_P(PSTR("G1 Z10 F300"));
+        sprintf_P(public_buf_l, PSTR("G1 X%d Y%d F2400"), (int)gCfgItems.levelingPos[0][0], (int)gCfgItems.levelingPos[0][1]);
         queue.enqueue_one_now(public_buf_l);
-        queue.enqueue_now_P(PSTR("G1 Z0"));
+        queue.enqueue_now_P(PSTR("G1 Z0 F300"));
       }
       break;
     case ID_M_POINT2:
@@ -71,10 +71,10 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
           uiCfg.leveling_first_time = 0;
         }
         lv_disp_action_status(ID_M_POINT2, 0);
-        queue.enqueue_now_P(PSTR("G1 Z10"));
-        sprintf_P(public_buf_l, PSTR("G1 X%d Y%d"), (int)gCfgItems.levelingPos[1][0], (int)gCfgItems.levelingPos[1][1]);
+        queue.enqueue_now_P(PSTR("G1 Z10 F300"));
+        sprintf_P(public_buf_l, PSTR("G1 X%d Y%d F2400"), (int)gCfgItems.levelingPos[1][0], (int)gCfgItems.levelingPos[1][1]);
         queue.enqueue_one_now(public_buf_l);
-        queue.enqueue_now_P(PSTR("G1 Z0"));
+        queue.enqueue_now_P(PSTR("G1 Z0 F300"));
       }
       break;
     case ID_M_POINT3:
@@ -84,10 +84,10 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
           uiCfg.leveling_first_time = 0;
         }
         lv_disp_action_status(ID_M_POINT3, 0);
-        queue.enqueue_now_P(PSTR("G1 Z10"));
-        sprintf_P(public_buf_l, PSTR("G1 X%d Y%d"), (int)gCfgItems.levelingPos[2][0], (int)gCfgItems.levelingPos[2][1]);
+        queue.enqueue_now_P(PSTR("G1 Z10 F300"));
+        sprintf_P(public_buf_l, PSTR("G1 X%d Y%d F2400"), (int)gCfgItems.levelingPos[2][0], (int)gCfgItems.levelingPos[2][1]);
         queue.enqueue_one_now(public_buf_l);
-        queue.enqueue_now_P(PSTR("G1 Z0"));
+        queue.enqueue_now_P(PSTR("G1 Z0 F300"));
       }
 
       break;
@@ -98,10 +98,10 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
           uiCfg.leveling_first_time = 0;
         }
         lv_disp_action_status(ID_M_POINT4, 0);
-        queue.enqueue_now_P(PSTR("G1 Z10"));
-        sprintf_P(public_buf_l, PSTR("G1 X%d Y%d"), (int)gCfgItems.levelingPos[3][0], (int)gCfgItems.levelingPos[3][1]);
+        queue.enqueue_now_P(PSTR("G1 Z10 F300"));
+        sprintf_P(public_buf_l, PSTR("G1 X%d Y%d F2400"), (int)gCfgItems.levelingPos[3][0], (int)gCfgItems.levelingPos[3][1]);
         queue.enqueue_one_now(public_buf_l);
-        queue.enqueue_now_P(PSTR("G1 Z0"));
+        queue.enqueue_now_P(PSTR("G1 Z0 F300"));
       }
       break;
     case ID_M_POINT5:
@@ -111,10 +111,10 @@ static void event_handler(lv_obj_t *obj, lv_event_t event) {
           uiCfg.leveling_first_time = 0;
         }
         lv_disp_action_status(ID_M_POINT5, 0);
-        queue.enqueue_now_P(PSTR("G1 Z10"));
-        sprintf_P(public_buf_l, PSTR("G1 X%d Y%d"), (int)gCfgItems.levelingPos[4][0], (int)gCfgItems.levelingPos[4][1]);
+        queue.enqueue_now_P(PSTR("G1 Z10 F300"));
+        sprintf_P(public_buf_l, PSTR("G1 X%d Y%d F2400"), (int)gCfgItems.levelingPos[4][0], (int)gCfgItems.levelingPos[4][1]);
         queue.enqueue_one_now(public_buf_l);
-        queue.enqueue_now_P(PSTR("G1 Z0"));
+        queue.enqueue_now_P(PSTR("G1 Z0 F300"));
       }
       break;
     #if ENABLED(AUTOLEVELING_IN_MANUAL_LEVELING_MENU)

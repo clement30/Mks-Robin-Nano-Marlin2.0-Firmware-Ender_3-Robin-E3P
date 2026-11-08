@@ -147,7 +147,7 @@ void tft_lvgl_init() {
     } while((!Sd2Card::isInserted()) && (usb_flash_loop--));
     card.mount();
   #elif HAS_LOGO_IN_FLASH
-    delay(2000);
+    delay(500);
   #endif
   
   watchdog_refresh();     // LVGL init takes time
